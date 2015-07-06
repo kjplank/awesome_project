@@ -35,7 +35,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">Awesome Bin</a>
+        <a href="/" class="navbar-brand">Awesome Collector</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -63,15 +63,18 @@
             <% end %>
           </a></li>
           <li><a href="/settings">Settings</a></li>
+          <li><a><strong>Vote Count: 5</strong></a></li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <% if 1 > 2 %>
-          <li><a href="/users/edit">Oscar the Grouch</a></li>
-          <li><a href="/users/sign_out" data-method="delete" rel="nofollow">Sign out</a></li>
+          <% if current_user.present? %>
+          <li><a href="/users/edit">
+            <%=  current_user.user_name %>
+          </a></li>
+          <li><a href="/users/sign_out" data-method="delete">Sign Out</a></li>
           <% else %>
-          <li><a href="/users/sign_up">Sign up</a></li>
-          <li><a href="/users/sign_in">Sign in</a></li>
+          <li><a href="/users/sign_in">Sign In</a></li>
+          <li><a href="/users/sign_up">Sign Up</a></li>
           <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->

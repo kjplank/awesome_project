@@ -1,118 +1,19 @@
+<% @theme = @theme3 %>
+<% @route = "theme3" %>
+
 <div class="page-header">
   <h1>
-    <% if Setting.last[:theme_3].present? %>
     <%= Setting.last[:theme_3] %>
-    <% else %>
-    [Enter Theme on Settings Page]
-    <% end %>
-    <a href="/theme3s/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
+    <a href="/<%= @route %>s/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
 
-<!-- Responsive, Isotope-based layout example -->
+<%= render "layouts/search" %>
 
-<div class="row">
-  <div class="col-xs-12">
-    <input type="text" id="quicksearch" placeholder="Search (start typing)" class="form-control">
-  </div>
-</div>
+<br>
 
-<hr>
+<%= render :partial =>"layouts/card", :locals => { :theme => @theme, :cancel_route => @route } %>
 
-<div class="row isotope-container">
-<% @theme3s.each do |theme3| %>
-  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 isotope-item">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Theme3 #<%= theme3.id %></h3>
-      </div>
-      <div class="panel-body">
-        <dl>
-          <dt>Innovation</dt>
-          <dd><%= theme3.innovation %></dd>
+<%= render "layouts/jscpt_footer" %>
 
-          <dt>Reason</dt>
-          <dd><%= theme3.reason %></dd>
 
-          <dt>Url</dt>
-          <dd><%= theme3.url %></dd>
-
-          <dt>Image</dt>
-          <dd><%= theme3.image %></dd>
-
-          <dt>Video</dt>
-          <dd><%= theme3.video %></dd>
-
-          <dt>Innovation votes</dt>
-          <dd><%= theme3.innovation_votes %></dd>
-
-          <dt>User</dt>
-          <dd><%= theme3.user_id %></dd>
-
-        </dl>
-        <div class="btn-group btn-group-justified">
-          <a href="/theme3s/<%= theme3.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a>
-
-          <a href="/theme3s/<%= theme3.id %>/edit" class="btn btn-warning">
-            <i class="fa fa-edit"></i>
-          </a>
-
-          <a href="/delete_theme3/<%= theme3.id %>" class="btn btn-danger" rel="nofollow">
-            <i class="fa fa-trash-o"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-<% end %>
-</div>
-
-<!-- You can ignore the following. It's a quick and dirty example of how to get a Pinterest-style layout with quick search. -->
-<!-- JavaScript for Isotope layout and quicksearch -->
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/3.1.8/imagesloaded.pkgd.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.0.0/isotope.pkgd.min.js"></script>
-<script>
-  $(function() {
-    // quick search regex
-    var qsRegex;
-
-    // init Isotope
-    var $container = $('.isotope-container');
-
-    $container.imagesLoaded(function() {
-      $container.isotope({
-        itemSelector: '.isotope-item',
-        layoutMode: 'masonry',
-        filter: function() {
-          return qsRegex ? $(this).text().match( qsRegex ) : true;
-        }
-      })
-    });
-
-    // use value of search field to filter
-    var $quicksearch = $('#quicksearch').keyup( debounce( function() {
-      qsRegex = new RegExp( $quicksearch.val(), 'gi' );
-      $container.isotope();
-    }, 200 ) );
-
-  });
-
-  // debounce so filtering doesn't happen every millisecond
-  function debounce( fn, threshold ) {
-    var timeout;
-    return function debounced() {
-      if ( timeout ) {
-        clearTimeout( timeout );
-      }
-      function delayed() {
-        fn();
-        timeout = null;
-      }
-      timeout = setTimeout( delayed, threshold || 100 );
-    }
-  }
-</script>
-
-<!-- End responsive, Isotope-based layout example -->

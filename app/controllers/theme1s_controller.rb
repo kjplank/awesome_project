@@ -1,6 +1,6 @@
 class Theme1sController < ApplicationController
   def index
-    @theme1s = Theme1.all
+    @themes = Theme1.all
   end
 
   def show
@@ -22,7 +22,7 @@ class Theme1sController < ApplicationController
     @theme1.user_id = params[:user_id]
 
     if @theme1.save
-      redirect_to "/theme1s", :notice => "Theme1 created successfully."
+      redirect_to "/theme1s", :notice => "Idea created successfully."
     else
       render 'new'
     end
@@ -44,7 +44,7 @@ class Theme1sController < ApplicationController
     @theme1.user_id = params[:user_id]
 
     if @theme1.save
-      redirect_to "/theme1s", :notice => "Theme1 updated successfully."
+      redirect_to "/theme1s", :notice => "Idea updated successfully."
     else
       render 'edit'
     end
@@ -55,6 +55,6 @@ class Theme1sController < ApplicationController
 
     @theme1.destroy
 
-    redirect_to "/theme1s", :notice => "Theme1 deleted."
+    redirect_to "/theme1s", :notice => "Idea deleted."
   end
 end

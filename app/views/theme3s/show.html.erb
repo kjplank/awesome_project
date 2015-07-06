@@ -1,55 +1,6 @@
-<!-- Responsive panel example-->
+<% @theme = @theme3 %>
+<% @route = "theme3" %>
 
-<div class="row">
-  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3 class="panel-title">Theme3 #<%= @theme3.id %></h3>
-      </div>
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-md-12">
-            <dl class="dl-horizontal">
-              <dt>Innovation</dt>
-              <dd><%= @theme3.innovation %></dd>
+<br>
+<%= render :partial =>"layouts/show", :locals => { :theme => @theme, :route => @route } %>
 
-              <dt>Reason</dt>
-              <dd><%= @theme3.reason %></dd>
-
-              <dt>Url</dt>
-              <dd><%= @theme3.url %></dd>
-
-              <dt>Image</dt>
-              <dd><%= @theme3.image %></dd>
-
-              <dt>Video</dt>
-              <dd><%= @theme3.video %></dd>
-
-              <dt>Innovation votes</dt>
-              <dd><%= @theme3.innovation_votes %></dd>
-
-              <dt>User</dt>
-              <dd><%= @theme3.user_id %></dd>
-
-            </dl>
-            <div class="btn-group btn-group-justified">
-              <a href="/theme3s" class="btn btn-primary">
-                <i class="fa fa-chevron-left"></i>
-              </a>
-
-              <a href="/theme3s/<%= @theme3.id %>/edit" class="btn btn-warning">
-                <i class="fa fa-edit"></i>
-              </a>
-
-              <a href="/delete_theme3/<%= @theme3.id %>" class="btn btn-danger" rel="nofollow">
-                <i class="fa fa-trash-o"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- End responsive panel example -->

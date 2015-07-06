@@ -12,7 +12,7 @@ class SettingsController < ApplicationController
     @settings.theme_3 = params[:theme_3]
 
     if @settings.save
-      redirect_to "/theme1s", :notice => "Settings updated successfully."
+      redirect_to "/settings", :notice => "Settings updated successfully."
     else
       redirect_to "/settings"
     end
