@@ -18,8 +18,7 @@ class Theme2sController < ApplicationController
     @theme2.url = params[:url]
     @theme2.image = params[:image]
     @theme2.video = params[:video]
-    @theme2.innovation_votes = params[:innovation_votes]
-    @theme2.user_id = params[:user_id]
+    @theme2.user_id = current_user.id
 
     if @theme2.save
       redirect_to "/theme2s", :notice => "Idea created successfully."
@@ -40,8 +39,7 @@ class Theme2sController < ApplicationController
     @theme2.url = params[:url]
     @theme2.image = params[:image]
     @theme2.video = params[:video]
-    @theme2.innovation_votes = params[:innovation_votes]
-    @theme2.user_id = params[:user_id]
+    @theme2.user_id = current_user.id
 
     if @theme2.save
       redirect_to "/theme2s", :notice => "Idea updated successfully."

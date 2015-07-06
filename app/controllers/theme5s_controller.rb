@@ -18,8 +18,7 @@ class Theme5sController < ApplicationController
     @theme5.url = params[:url]
     @theme5.image = params[:image]
     @theme5.video = params[:video]
-    @theme5.innovation_votes = params[:innovation_votes]
-    @theme5.user_id = params[:user_id]
+    @theme5.user_id = current_user.id
 
     if @theme5.save
       redirect_to "/theme5s", :notice => "Idea created successfully."
@@ -40,8 +39,7 @@ class Theme5sController < ApplicationController
     @theme5.url = params[:url]
     @theme5.image = params[:image]
     @theme5.video = params[:video]
-    @theme5.innovation_votes = params[:innovation_votes]
-    @theme5.user_id = params[:user_id]
+    @theme5.user_id = current_user.id
 
     if @theme5.save
       redirect_to "/theme5s", :notice => "Idea updated successfully."

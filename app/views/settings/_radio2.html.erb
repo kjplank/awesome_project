@@ -1,7 +1,7 @@
 <% if @settings.last[:show_all_ideas] %>
 <div class="form-group">
   <label for="reason" class="col-sm-3 control-label">
-    <strong>Ideas</strong>
+    <strong>Display Ideas & Vote</strong>
   </label>
   <div class="col-sm-9">
     <div class="radio">
@@ -13,15 +13,19 @@
     <div class="radio">
       <label>
         <input type="radio" id="show_all_ideas" name="show_all_ideas" value = "true" checked>
-        Show users <u>all</u> submitted ideas
+        Show users <u>all</u> submitted ideas & turn on voting
       </label>
+    </div>
+    <br>
+    <div>
+      Note: Users lose the ability to edit their ideas once voting is turned on.
     </div>
   </div>
 </div>
 <% else %>
 <div class="form-group">
   <label for="reason" class="col-sm-3 control-label">
-    <strong>Ideas</strong>
+    <strong>Display Ideas & Vote</strong>
   </label>
   <div class="col-sm-9">
     <div class="radio">
@@ -33,8 +37,12 @@
     <div class="radio">
       <label>
         <input type="radio" id="show_all_ideas" name="show_all_ideas" value = "true">
-        Show users <u>all</u> submitted ideas
+        Show users <u>all</u> submitted ideas & turn on voting
       </label>
+    </div>
+    <br>
+    <div>
+      Note: Users lose the ability to edit their ideas once voting is turned on.
     </div>
   </div>
 </div>

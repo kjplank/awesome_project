@@ -18,15 +18,19 @@
               <dt>What makes it so great?</dt>
               <dd><%= @theme.reason %></dd>
 
+              <dt>Image</dt>
+              <dd><%= @theme.image %></dd>
+
               <% if theme.url.present? %>
               <dt>Website</dt>
               <dd><a href="/<%= theme.url %>"><%= theme.url %></a></dd>
               <% end %>
             </dl>
 
+            <% if theme.user_id == current_user.id && Setting.last[:show_all_ideas] == false %>
             <div class="btn-group btn-group-justified">
-              <a href="/<%= @route %>s/<%= theme.id %>" class="btn btn-primary">
-                <i class="fa fa-search-plus"></i>
+              <a href="/<%= @route %>s" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
               </a>
 
               <a href="/<%= @route %>s/<%= theme.id %>/edit" class="btn btn-warning">
@@ -36,6 +40,14 @@
               <a href="/delete_<%= @route %>/<%= theme.id %>" class="btn btn-danger" rel="nofollow">
                 <i class="fa fa-trash-o"></i>
               </a>
+            </div>
+            <% else %>
+            <div class="btn-group btn-group-justified">
+              <a href="/<%= @route %>s" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <% end %>
 
             </div>
           </div>
@@ -43,6 +55,5 @@
       </div>
     </div>
   </div>
-</div>
 
-<!-- End responsive panel example -->
+  <!-- End responsive panel example -->

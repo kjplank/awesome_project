@@ -1,5 +1,49 @@
 <div class="row isotope-container">
+  <% if Setting.last[:show_all_ideas] %>
   <% @themes.each do |theme| %>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <form>
+          <a href="/" class="btn btn-success btn-xs">
+              <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+            </a>
+            <strong><%= theme.innovation %></strong>
+          </h3>
+        </form>
+      </div>
+      <div class="panel-body">
+        <% if theme.video.present? %>
+        <div class="embed-container">
+          <%= embed(theme.video) %>
+        </div>
+        <% end %>
+        <dl>
+          <dt>What makes it so great?</dt>
+          <dd><%= theme.reason %></dd>
+
+          <% if theme.url.present? %>
+          <dt>Website</dt>
+          <dd><a href="/<%= theme.url %>"><%= theme.url %></a></dd>
+          <% end %>
+
+        </dl>
+        <div class="btn-group btn-group-justified">
+          <a href="/<%= @route %>s/<%= theme.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+  <% else %>
+
+  <% @themes.each do |theme| %>
+  <% if theme.user_id == current_user.id %>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -38,4 +82,9 @@
     </div>
   </div>
   <% end %>
+
+  <% end %>
+  <% end %>
+
+
 </div>

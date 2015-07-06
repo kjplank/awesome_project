@@ -2,37 +2,46 @@
 <% if @settings.last[:show_votes] %>
 <div class="form-group">
   <label for="reason" class="col-sm-3 control-label">
-    <strong>Votes</strong>
+  <strong>Display Results</strong>
   </label>
   <div class="col-sm-9">
     <div class="radio">
       <label>
-      <input type="radio" name="show_votes" id="show_votes" value = "false">Hide vote count
+        <input type="radio" name="show_votes" id="show_votes" value = "false">Hide votes
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="show_votes" id="show_votes" value = "true" checked>Show vote count
+        <input type="radio" name="show_votes" id="show_votes" value = "true" checked>Show votes
       </label>
+    </div>
+    <br>
+    <div>
+      Note: 'Show votes' displays the anonymized vote count for each submitted idea.  Do this <u>only</u> after voting has occured.  Users always have the ability to see their own voting history, even if 'Hide votes' is clicked.
     </div>
   </div>
 </div>
 <% else %>
 <div class="form-group">
   <label for="reason" class="col-sm-3 control-label">
-    <strong>Votes</strong>
+    <strong>Display Results</strong>
   </label>
   <div class="col-sm-9">
     <div class="radio">
       <label>
-        <input type="radio" name="show_votes" id="show_votes" value = "false" checked>Hide vote count
+        <input type="radio" name="show_votes" id="show_votes" value = "false" checked>Hide votes
       </label>
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="show_votes" id="show_votes" value = "true">Show vote count
+        <input type="radio" name="show_votes" id="show_votes" value = "true">Show votes
       </label>
+    </div>
+    <br>
+    <div>
+      Note: 'Show votes' displays the anonymized vote count for each submitted idea.  Do this <u>only</u> after voting has occured.  Users always have the ability to see their own voting history, even if 'Hide votes' is clicked.
     </div>
   </div>
 </div>
 <% end %>
+
