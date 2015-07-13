@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "rails_config"
+# gem "rails_config"
 
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
