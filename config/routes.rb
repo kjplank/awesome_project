@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  root 'settings#instructions'
+
+  if Setting.last[:show_votes]
+    root 'settings#results'
+  else
+    root 'settings#instructions'
+  end
 
   # Routes for the Setting resource:
   # CREATE

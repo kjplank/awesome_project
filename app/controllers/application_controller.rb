@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
       i = Setting.new
       i.show_votes = "false"
       i.show_all_ideas = "false"
-      i.theme_1 = "Bin 1"
-      i.theme_2 = "Bin 2"
-      i.theme_3 = "Bin 3"
+      i.theme_1 = "Category 1"
+      i.theme_2 = "Category 2"
+      i.theme_3 = "Category 3"
       i.save
     end
   end

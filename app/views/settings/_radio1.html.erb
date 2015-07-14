@@ -2,7 +2,7 @@
 <% if @settings.last[:show_votes] %>
 <div class="form-group">
   <label for="reason" class="col-sm-3 control-label">
-  <strong>Display Results</strong>
+  <strong>Voting Results</strong>
   </label>
   <div class="col-sm-9">
     <div class="radio">
@@ -12,12 +12,12 @@
     </div>
     <div class="radio">
       <label>
-        <input type="radio" name="show_votes" id="show_votes" value = "true" checked>Show votes
+        <input type="radio" name="show_votes" id="show_votes" value = "true" checked>Display results
       </label>
     </div>
     <br>
     <div>
-      Note: 'Show votes' displays the anonymized vote count for each submitted idea.  Do this <u>only</u> after voting has occured.  Users always have the ability to see their own voting history, even if 'Hide votes' is clicked.
+      Note: Selecting 'Display results' changes a user's homepage to show the top voted results across all categories.  It also shows each user an anonymized vote count for the ideas they submitted.  Displaying voting results automatically closes voting.
     </div>
   </div>
 </div>
