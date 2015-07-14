@@ -17,14 +17,18 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
 
-  i = Setting.new
-  i.show_votes = "false"
-  i.show_all_ideas = "false"
-  i.theme_1 = "Bin 1"
-  i.theme_2 = "Bin 2"
-  i.theme_3 = "Bin 3"
-  i.save
-
+  before_action :check_settings
+  def check_settings
+    if Setting.count == 0
+      i = Setting.new
+      i.show_votes = "false"
+      i.show_all_ideas = "false"
+      i.theme_1 = "Bin 1"
+      i.theme_2 = "Bin 2"
+      i.theme_3 = "Bin 3"
+      i.save
+    end
+  end
 
 end
 
