@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 
 gem 'starter_generators', :git => "http://github.com/rbetina/starter_generators.git", :branch => "simple"
 
+gem "figaro"
+
+gem "fog"
+
 gem 'carrierwave'
 
 gem 'devise'
