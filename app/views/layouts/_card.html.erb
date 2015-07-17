@@ -6,27 +6,35 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <form>
-          <a href="/" class="btn btn-success btn-xs">
+            <button class="btn btn-success btn-xs" role="button">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
-            </a>
+            </button>
             <strong><%= theme.innovation %></strong>
           </h3>
         </form>
       </div>
       <div class="panel-body">
+
         <% if theme.video.present? %>
         <div class="embed-container">
           <%= embed(theme.video) %>
         </div>
+        <% else %>
+        <% if theme.image.present? %>
+        <div>
+          <img src="<%= theme.image %>" class="img-responsive center-block">
+        </div>
         <% end %>
+        <% end %>
+
         <dl>
-          <dt>What makes it so great?</dt>
+<!--           <dt>What makes it so great?</dt>
           <dd><%= theme.reason %></dd>
 
           <% if theme.url.present? %>
           <dt>Website</dt>
           <dd><a href="/<%= theme.url %>"><%= theme.url %></a></dd>
-          <% end %>
+          <% end %> -->
 
         </dl>
         <div class="btn-group btn-group-justified">
@@ -54,15 +62,22 @@
         <div class="embed-container">
           <%= embed(theme.video) %>
         </div>
+        <% else %>
+        <% if theme.image.present? %>
+        <div>
+          <img src="<%= theme.image %>" class="img-responsive center-block">
+        </div>
         <% end %>
+        <% end %>
+
         <dl>
-          <dt>What makes it so great?</dt>
+<!--           <dt>What makes it so great?</dt>
           <dd><%= theme.reason %></dd>
 
           <% if theme.url.present? %>
           <dt>Website</dt>
           <dd><a href="/<%= theme.url %>"><%= theme.url %></a></dd>
-          <% end %>
+          <% end %> -->
 
         </dl>
         <div class="btn-group btn-group-justified">

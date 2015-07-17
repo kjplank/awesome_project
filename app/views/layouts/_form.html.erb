@@ -1,59 +1,67 @@
 <!-- Label and input for innovation -->
-          <div class="form-group">
-            <label for="innovation" class="col-sm-3 control-label">
-              What's the idea? <br> (6 words or less)
-            </label>
-            <div class="col-sm-9" rows = 1>
-              <textarea id="innovation" name="innovation" placeholder="" class="form-control" rows="2"><%= @theme.innovation %></textarea>
-            </div>
-          </div>
+<div class="form-group">
+  <label for="innovation" class="col-sm-3 control-label">
+    What's the idea? <br> (6 words or less)
+  </label>
+  <div class="col-sm-9" rows = 1>
+    <textarea id="innovation" name="innovation" placeholder="" class="form-control" rows="2"><%= @theme.innovation %></textarea>
+  </div>
+</div>
 
-          <!-- Label and input for reason -->
-          <div class="form-group">
-            <label for="reason" class="col-sm-3 control-label">
-              What makes it so great?
-            </label>
-            <div class="col-sm-9">
-              <textarea id="reason" name="reason" placeholder="" class="form-control" rows="5"><%= @theme.reason %></textarea>
-            </div>
-          </div>
+<!-- Label and input for reason -->
+<div class="form-group">
+  <label for="reason" class="col-sm-3 control-label">
+    What makes it so great?
+  </label>
+  <div class="col-sm-9">
+    <textarea id="reason" name="reason" placeholder="" class="form-control" rows="5"><%= @theme.reason %></textarea>
+  </div>
+</div>
 
-          <!-- Label and input for url -->
-          <div class="form-group">
-            <label for="url" class="col-sm-3 control-label">
-              Website
-            </label>
-            <div class="col-sm-9">
-              <input type="text" id="url" name="url" placeholder="URL" class="form-control" value="<%= @theme.url %>">
-            </div>
-          </div>
+<!-- Label and input for url -->
+<div class="form-group">
+  <label for="url" class="col-sm-3 control-label">
+    Website
+  </label>
+  <div class="col-sm-9">
+    <input type="text" id="url" name="url" placeholder="URL" class="form-control" value="<%= @theme.url %>">
+  </div>
+</div>
 
-          <!-- Label and input for image -->
-          <div class="form-group">
-            <label for="image" class="col-sm-3 control-label">
-              Image
-            </label>
-            <div class="col-sm-9">
-              <input type="text" id="image" name="image" placeholder="URL" class="form-control" value="<%= @theme.image %>">
-            </div>
-          </div>
+<!-- Label and input for image -->
+<div class="form-group">
+  <label for="image" class="col-sm-3 control-label">
+    Image
+  </label>
+  <div class="col-sm-9">
+    <% if @theme.image.present? %>
+    <img src="<%= @theme.image %>" class="img-thumbnail"><br><br>
+    <a href="/delete_image/<%= @route %>/<%= @theme.id %>"> Delete </a>
+    or replace with new image image:
+    <input type="file" id="image" name="image" placeholder="<%= @theme.image.file.filename %>" class="form-control" value="<%= @theme.image %>">
 
-          <!-- Label and input for video -->
-          <div class="form-group">
-            <label for="video" class="col-sm-3 control-label">
-              YouTube
-            </label>
-            <div class="col-sm-9">
-              <input type="text" id="video" name="video" placeholder="URL" class="form-control" value="<%= @theme.video %>">
-            </div>
-          </div>
+    <% else %>
+    <input type="file" id="image" name="image" class="form-control" value="<%= @theme.image %>">
+    <% end %>
+  </div>
+</div>
 
-          <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-9">
-              <button class="btn btn-success">
-                Submit
-              </button>
-              or
-              <a href="/<%= @route %>s">Cancel</a>
-            </div>
-          </div>
+<!-- Label and input for video -->
+<div class="form-group">
+  <label for="video" class="col-sm-3 control-label">
+    YouTube
+  </label>
+  <div class="col-sm-9">
+    <input type="text" id="video" name="video" placeholder="URL" class="form-control" value="<%= @theme.video %>">
+  </div>
+</div>
+
+<div class="form-group">
+  <div class="col-sm-offset-3 col-sm-9">
+    <button class="btn btn-success">
+      Submit
+    </button>
+    or
+    <a href="/<%= @route %>s">Cancel</a>
+  </div>
+</div>

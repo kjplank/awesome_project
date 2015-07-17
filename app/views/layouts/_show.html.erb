@@ -14,12 +14,17 @@
               <%= embed(@theme.video) %>
             </div>
             <% end %>
+
+            <% if @theme.image.present? %>
+            <div>
+              <img src="<%= @theme.image %>" class="img-responsive center-block">
+            </div>
+            <% end %>
+
             <dl class="dl-horizontal">
+
               <dt>What makes it so great?</dt>
               <dd><%= @theme.reason %></dd>
-
-              <dt>Image</dt>
-              <dd><%= @theme.image %></dd>
 
               <% if theme.url.present? %>
               <dt>Website</dt>

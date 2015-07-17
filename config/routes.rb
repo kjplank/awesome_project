@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     root 'settings#instructions'
   end
 
+  get "/delete_image/:theme/:theme_id", :controller => "settings", :action => "delete_image"
+
   # Routes for the Setting resource:
   # CREATE
   get "/settings/new", :controller => "settings", :action => "new"

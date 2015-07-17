@@ -18,6 +18,17 @@ class SettingsController < ApplicationController
     end
   end
 
+def delete_image
+  a = params[:theme]
+  b = params[:theme_id]
+
+  @theme = a.capitalize.constantize.find(b)
+  @theme.remove_image!
+  @theme.save
+
+  redirect_to "/#{a}s/#{b}/edit", :notice => "Image deleted."
+end
+
   # def show
   #   @setting = Setting.find(params[:id])
   # end
