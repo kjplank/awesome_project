@@ -18,16 +18,76 @@ class SettingsController < ApplicationController
     end
   end
 
-def delete_image
-  a = params[:theme]
-  b = params[:theme_id]
+  def cast_vote
+    a = params[:theme]
+    b = params[:theme_id]
+    @theme = a.capitalize.constantize.find(b)
+    @user = current_user
 
-  @theme = a.capitalize.constantize.find(b)
-  @theme.remove_image!
-  @theme.save
+    if @user.user_votes.present? && @user.user_votes < 10
+      if @theme.innovation_votes.present?
+        @theme.innovation_votes = @theme.innovation_votes + 1
+        @theme.save
+      else
+        @theme.votes = 1
+        @theme.save
+      end
 
-  redirect_to "/#{a}s/#{b}/edit", :notice => "Image deleted."
-end
+      @user.user_votes = @user.user_votes + 1
+      @user.save
+      vote_message = "Vote cast. You have voted #{@user.user_votes} of 10 times."
+    end
+
+    if @user.user_votes.nil? || @user.user_votes == 0
+      if @theme.innovation_votes.present?
+        @theme.innovation_votes = @theme.innovation_votes + 1
+        @theme.save
+      else
+        @theme.innovation_votes = 1
+        @theme.save
+      end
+      @user.user_votes = 1
+      @user.save
+      vote_message = "You just cast your first vote.  Nice!"
+    end
+
+    if @user.user_votes == 10
+      vote_message = "You're all out of votes. Thanks for participating!"
+    end
+
+    redirect_to "/#{params[:theme]}s", :notice => "#{vote_message}"
+  end
+
+  def reset_votes
+
+    (1...5).each do |i|
+      theme = "Theme" + i.to_s
+      @theme = theme.constantize.all
+
+      @theme.each do |theme|
+        theme.innovation_votes = 0
+        theme.save
+      end
+    end
+
+    @user = User.all
+    @user.each do |user|
+      user.user_votes = 0
+      user.save
+    end
+    redirect_to "/settings", :notice => "All votes reset."
+  end
+
+  def delete_image
+    a = params[:theme]
+    b = params[:theme_id]
+
+    @theme = a.capitalize.constantize.find(b)
+    @theme.remove_image!
+    @theme.save
+
+    redirect_to "/#{a}s/#{b}/edit", :notice => "Image deleted."
+  end
 
   # def show
   #   @setting = Setting.find(params[:id])

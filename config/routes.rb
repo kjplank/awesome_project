@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   get "/delete_image/:theme/:theme_id", :controller => "settings", :action => "delete_image"
 
+# Routes for Voting:
+  get "/cast_vote/:theme/:theme_id", :controller => "settings", :action => "cast_vote"
+  get "/reset_votes", :controller => "settings", :action => "reset_votes"
+
+
   # Routes for the Setting resource:
   # CREATE
   get "/settings/new", :controller => "settings", :action => "new"

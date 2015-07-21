@@ -62,11 +62,11 @@
           <% end %>
 
           <% if Setting.last[:show_all_ideas] && Setting.last[:show_votes]==false %>
-            <% if current_user.user_votes == nil %>
-            <li><a><strong>Voting open!</strong></a></li>
-            <% else %>
-            <li><a><strong>Vote Count: <%= current_user.user_votes %></strong></a></li>
-            <% end %>
+          <% if current_user.user_votes == nil %>
+          <li><a><strong>Voting open!</strong></a></li>
+          <% else %>
+          <li><a><strong>Vote Count: <%= current_user.user_votes %></strong></a></li>
+          <% end %>
           <% else %>
           <li><a><strong>Voting closed!</strong></a></li>
           <% end %>
