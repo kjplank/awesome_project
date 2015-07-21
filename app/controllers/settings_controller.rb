@@ -29,7 +29,7 @@ class SettingsController < ApplicationController
         @theme.innovation_votes = @theme.innovation_votes + 1
         @theme.save
       else
-        @theme.votes = 1
+        @theme.innovation_votes = 1
         @theme.save
       end
 
