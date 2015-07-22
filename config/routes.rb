@@ -3,17 +3,14 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   devise_for :users
 
-  if Setting.last[:show_votes]
-    root 'settings#results'
-  else
-    root 'settings#instructions'
-  end
+  root 'settings#instructions'
+
 
   get "/delete_image/:theme/:theme_id", :controller => "settings", :action => "delete_image"
 
 # Routes for Voting:
-  get "/cast_vote/:theme/:theme_id", :controller => "settings", :action => "cast_vote"
-  get "/reset_votes", :controller => "settings", :action => "reset_votes"
+get "/cast_vote/:theme/:theme_id", :controller => "settings", :action => "cast_vote"
+get "/reset_votes", :controller => "settings", :action => "reset_votes"
 
 
   # Routes for the Setting resource:
