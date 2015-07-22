@@ -6,10 +6,18 @@
       <div class="panel-heading">
         <h3 class="panel-title">
           <form>
+            <% if Setting.last[:show_votes] %>
+            <% else %>
             <a href="/cast_vote/<%= @route %>/<%=theme.id%>" class="btn btn-primary btn-xs">
               <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
             </a>
-            <strong><%= theme.innovation %></strong>
+            <% end %>
+            <% if Setting.last[:show_votes] %>
+            <span class="label label-success label-as-badge">+<%= theme.innovation_votes %></span>
+            <% end %>
+            <strong>
+              <%= theme.innovation %>
+            </strong>
           </h3>
         </form>
       </div>
