@@ -1,6 +1,6 @@
 <div class="row isotope-container">
   <% if Setting.last[:show_all_ideas] %>
-  <% @themes.shuffle.each do |theme| %>
+  <% @themes.each do |theme| %>
   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 isotope-item">
     <div class="panel panel-default">
       <div class="panel-heading">

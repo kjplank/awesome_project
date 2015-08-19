@@ -3,7 +3,7 @@ class Theme1sController < ApplicationController
     if Setting.last[:show_votes]
       @themes = Theme1.all.sort_by(&:innovation_votes).reverse
     else
-      @themes = Theme1.all
+      @themes = Theme1.order("RANDOM()").all
     end
   end
 
