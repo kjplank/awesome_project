@@ -28,8 +28,9 @@
 
               <% if theme.url.present? %>
               <dt>Website</dt>
-              <dd><a href="/<%= theme.url %>"><%= theme.url %></a></dd>
+              <dd> <%= link_to theme.url, "#{theme.url}", :target => '_blank' %></dd>
               <% end %>
+
             </dl>
 
             <% if theme.user_id == current_user.id && Setting.last[:show_all_ideas] == false %>
