@@ -3,6 +3,12 @@ class SettingsController < ApplicationController
     @settings = Setting.all
   end
 
+  def instructions
+     @theme1s = Theme1.all.sort_by(&:innovation_votes).reverse
+     @theme2s = Theme2.all.sort_by(&:innovation_votes).reverse
+     @theme3s = Theme3.all.sort_by(&:innovation_votes).reverse
+  end
+
   def update
     @settings = Setting.new
     @settings.show_votes = params[:show_votes]

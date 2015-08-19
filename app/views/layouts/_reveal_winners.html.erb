@@ -1,0 +1,45 @@
+
+<div class="row isotope-container">
+<% @themes.first(2).each do |theme| %>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 isotope-item">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <form>
+            <span class="label label-success label-as-badge">+<%= theme.innovation_votes %></span>
+            <strong>
+              <%= theme.innovation %>
+            </strong>
+          </form>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <% if theme.video.present? %>
+        <div class="embed-container">
+          <%= embed(theme.video) %>
+        </div>
+        <% else %>
+        <% if theme.image.present? %>
+        <div>
+          <img src="<%= theme.image %>" class="img-responsive center-block">
+        </div>
+        <% end %>
+        <% end %>
+
+        <dl>
+
+        </dl>
+
+        <div class="btn-group btn-group-justified">
+          <a href="/<%= @route %>s/<%= theme.id %>" class="btn btn-primary">
+            <i class="fa fa-search-plus"></i>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+

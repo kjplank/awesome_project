@@ -1,9 +1,32 @@
 
 <% if Setting.last[:show_votes] %>
 
-<br>
-<h3> Highest voted ideas will go here! </h3>
-<br>
+<h1> Here are the winners for each category! </h1>
+
+<h3> Personalization </h3>
+<hr>
+
+<% @themes = @theme1s %>
+<% @route = "theme1" %>
+
+
+<%= render :partial =>"layouts/reveal_winners", :locals => { :theme => @theme, :cancel_route => @route } %>
+
+<h3> Loyalty </h3>
+<hr>
+
+<% @themes = @theme2s %>
+<% @route = "theme2" %>
+
+<%= render :partial =>"layouts/reveal_winners", :locals => { :theme => @theme, :cancel_route => @route } %>
+
+<h3> Self-Service </h3>
+<hr>
+
+<% @themes = @theme3s %>
+<% @route = "theme3" %>
+
+<%= render :partial =>"layouts/reveal_winners", :locals => { :theme => @theme, :cancel_route => @route } %>
 
 <% else %>
 

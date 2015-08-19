@@ -1,6 +1,11 @@
 class Theme3sController < ApplicationController
+
   def index
-    @themes = Theme3.all
+    if Setting.last[:show_votes]
+      @themes = Theme3.all.sort_by(&:innovation_votes).reverse
+    else
+      @themes = Theme3.all
+    end
   end
 
   def show
